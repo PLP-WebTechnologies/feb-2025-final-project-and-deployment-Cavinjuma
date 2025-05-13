@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart - ShopEasy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <h1>ShopEasy</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main style="padding: 2rem;">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <p id="empty-cart">Your cart is currently empty.</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ShopEasy. All rights reserved.</p>
+  </footer>
+
+<script>
+  const cartItemsEl = document.getElementById("cart-items");
+  const emptyMsg = document.getElementById("empty-cart");
+  const cartCount = document.getElementById("cart-count");
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  function updateCartPage() {
+    cartCount.textContent = cart.length;
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    if (cart.length > 0) {
+      emptyMsg.style.display = "none";
+      cartItemsEl.innerHTML = cart
+        .map(
+          (id, index) => `
+          <li>
+            Product ID: ${id}
+            <button onclick="removeFromCart(${index})">Remove</button>
+          </li>
+        `
+        )
+        .join("");
+    } else {
+      cartItemsEl.innerHTML = "";
+      emptyMsg.style.display = "block";
+    }
+  }
+
+  function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartPage();
+  }
+
+  updateCartPage();
+</script>
+</body>
+</html>
