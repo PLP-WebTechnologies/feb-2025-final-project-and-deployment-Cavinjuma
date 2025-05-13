@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products - ShopEasy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <h1>ShopEasy</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="featured-products">
+      <h3>All Products</h3>
+      <div class="product-list">
+        <div class="product" data-id="4">
+          <img src="data:image/jpeg;base64,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" alt="Phone Case" />
+          <h4>Phone Case</h4>
+          <p>Ksh. 1,299</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product" data-id="5">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVaK8fgjeMDIEFzxdApd27erCtn2V3oI7Lrw&s" alt="Laptop Stand" />
+          <h4>Laptop Stand</h4>
+          <p>Ksh. 2,999</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product" data-id="6">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgJBCx6kyvmdxwbBgAwNMuzdqWlt_gHRosMg&s" alt="USB Cable" />
+          <h4>USB Cable</h4>
+          <p>Ksh. 999</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ShopEasy. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
